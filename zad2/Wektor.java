@@ -9,10 +9,14 @@ public class Wektor{
         this.dy = y;
     }
 
-    // static double zlozonyW(){
-    //     double odlX = Math.pow(Wektor.dx,2);
-    //     double odlY = Math.pow(Wektor.dy,2);
-
-    //     return Math.sqrt(odlX + odlY);
-    // }
+    public static Wektor zlozonyW(Punkt pkt1,Punkt pkt2){
+        double x1 = pkt1.getX();
+        double y1 = pkt1.getY();
+        double x2 = pkt2.getX();
+        double y2 = pkt2.getY();
+        double odlX = Math.sqrt(Math.pow(x1-x2,2));
+        double odlY = Math.sqrt(Math.pow(y1-y2,2));
+        Wektor zlozony = new Wektor(odlX,odlY);
+        return zlozony;
+    }
 }
