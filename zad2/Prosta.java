@@ -20,7 +20,7 @@ public class Prosta{
     }
 
     public static boolean czyRownolegle(Prosta prosta1, Prosta prosta2){
-        if(prosta1.a == prosta2.a){
+        if(prosta1.a*prosta2.b == prosta2.a*prosta1.b){
             return true;
         } else {
             return false;
@@ -39,8 +39,8 @@ public class Prosta{
         double x = 0;
         double y = 0;
         if (czyRownolegle(prosta1, prosta2) == false){
-            x = (prosta2.c/prosta2.b-prosta1.c/prosta1.b)/(prosta1.a/prosta1.b - prosta2.a/prosta2.b);
-            y = x*(prosta1.a/prosta1.b) - prosta1.c/prosta1.b;
+            x = (prosta1.c/prosta1.b-prosta2.c/prosta2.b)/(prosta2.a/prosta2.b - prosta1.a/prosta1.b);
+            y = -x*(prosta1.a/prosta1.b) - prosta1.c/prosta1.b;
         } else {
             System.err.println("Proste są równoległe!");
         }
