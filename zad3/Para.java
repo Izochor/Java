@@ -5,14 +5,9 @@ public class Para{
     private double wartość;
 
     public Para(String klucz,double wartosc){
-        if( klucz.equals("") || klucz.equals(null)){
-            // System.err.println("Pusty klucz!");
-            this.klucz = "default";
-            this.wartość = wartosc;
-        } else {
+        if(klucz.equals("")||klucz.equals(null)) throw new IllegalArgumentException();
             this.klucz = klucz;
             this.wartość = wartosc;
-        }
     }
 
     public double getWart(){
@@ -33,7 +28,7 @@ public class Para{
 
     public String toString(){
         double wart = this.getWart();
-        return Double.toString(wart);
+        return "Klucz: "+this.klucz+" Wartość: "+Double.toString(wart);
     }
 
 }
