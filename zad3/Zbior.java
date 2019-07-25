@@ -2,10 +2,10 @@ package struktury;
 
 public abstract class Zbior{
     int rozmiar;
-    Para[] tablicaPar;
+    public Para[] tablicaPar;
 
     public Zbior(int rozmiar){
-        if (rozmiar<2) throw new IllegalArgumentException();
+        if (rozmiar < 2) throw new IllegalArgumentException("Za mały rozmiar Zbioru");
         this.rozmiar = rozmiar;
         this.tablicaPar = new Para[rozmiar];
     }
@@ -21,5 +21,5 @@ public abstract class Zbior{
     /** metoda ma usunąć wszystkie pary ze zbioru */
     public abstract void czysc();
     /** metoda ma podać ile par jest przechowywanych w zbiorze */
-    public abstract int ile ();
+    public abstract int ile();
 }
