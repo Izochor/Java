@@ -8,7 +8,7 @@ public class ZbiorNaTablicy extends struktury.Zbior{
 
     public Para szukaj(String k) throws NullPointerException{
         Para nowa = new Para(k,0);
-        for (int i = 0; i<this.rozmiar;i++){
+        for (int i = 0; i < this.ile();i++){
             if(this.tablicaPar[i].equals(nowa)){
                 return this.tablicaPar[i];
             }
@@ -18,7 +18,7 @@ public class ZbiorNaTablicy extends struktury.Zbior{
 
     /** metoda ma wstawiać do zbioru nową parę */
     public void wstaw (Para p) throws IllegalArgumentException{
-        for(int i =0; i<this.rozmiar; i++){
+        for(int i =0; i < this.rozmiar; i++){
             if(this.tablicaPar[i] == null) {
                 this.tablicaPar[i] = new Para(p.klucz,p.getWart());
                 break;
@@ -33,25 +33,28 @@ public class ZbiorNaTablicy extends struktury.Zbior{
         } 
         catch (NullPointerException e)
         {
-            System.err.println("catch");
+            System.err.println("Null Pointer czytaj");
             return -1;
         }
     }
 
     /** metoda ma wstawić do zbioru nową albo zaktualizować parę */
     public void ustaw (Para p) throws IllegalArgumentException{      
-        if(szukaj(p.klucz) != null) {
-            for(Para i : this.tablicaPar){
-                if(i.equals(p.klucz)) i.setWart(p.getWart());
-            }
-        } else {
-            try{
+        try{
+            if (this.szukaj(p.klucz) != null){
+                for(Para i : this.tablicaPar){
+                    if(i.equals(p)) i.setWart(p.getWart());
+                }
+            } else {
                 wstaw(p);
             }
-            catch (IllegalArgumentException e)
-            {
-                System.out.println("catch");
-            }
+
+        }
+        catch (IllegalArgumentException e){
+            System.err.println("Illegal Argument ustaw");
+        }
+        catch (NullPointerException e){
+            System.err.println("Null Pointer ustaw");
         } 
     }
 
