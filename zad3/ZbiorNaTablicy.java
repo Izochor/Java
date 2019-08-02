@@ -18,14 +18,23 @@ public class ZbiorNaTablicy extends struktury.Zbior{
 
     /** metoda ma wstawiać do zbioru nową parę */
     public void wstaw (Para p) throws IllegalArgumentException{
-        for(int i =0; i < this.rozmiar; i++){
-            if(this.tablicaPar[i] == null) {
-                this.tablicaPar[i] = new Para(p.klucz,p.getWart());
-                break;
+        if (this.ile() != this.rozmiar){
+            if(this.szukaj(p.klucz) != null){
+                System.err.println("Jest już taki klucz!");
+            } else {
+                for(int i =0; i < this.rozmiar; i++){
+                    if(this.tablicaPar[i] == null) {
+                        this.tablicaPar[i] = new Para(p.klucz,p.getWart());
+                        break;
+                    }
+                }
             }
+        } else {
+            System.err.println("Zbiór jest pełny!");
         }
     }
 
+    /** metoda ma odszukać parę i zwrócić wartość związaną z kluczem */
     public double czytaj (String k) throws IllegalArgumentException{
         try {
             Para szukana = szukaj(k);
@@ -43,7 +52,10 @@ public class ZbiorNaTablicy extends struktury.Zbior{
         try{
             if (this.szukaj(p.klucz) != null){
                 for(Para i : this.tablicaPar){
-                    if(i.equals(p)) i.setWart(p.getWart());
+                    if(i.equals(p)) {
+                        i.setWart(p.getWart());
+                        break;
+                    }
                 }
             } else {
                 wstaw(p);
@@ -69,12 +81,5 @@ public class ZbiorNaTablicy extends struktury.Zbior{
             if(p != null) nPary += 1;
         }
         return nPary;
-    }
-
-    public boolean zapelnione(){
-        for(Para p : this.tablicaPar){
-            if (p != null) return false;
-        }
-        return true;
     }
 }
