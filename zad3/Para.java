@@ -1,5 +1,6 @@
 package struktury;
 
+/**Struntura danych. Para klucz-wartość.*/
 public class Para{
     public final String klucz;
     private double wartość;
@@ -10,10 +11,12 @@ public class Para{
             this.wartość = wartosc;
     }
 
+    /**@return zwraca wartość */
     public double getWart(){
         return this.wartość;
     }
 
+    /**@param nowaWart ustawia nową wartosć pary*/
     public void setWart(double nowaWart){
         this.wartość = nowaWart;
     }

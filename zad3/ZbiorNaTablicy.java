@@ -1,6 +1,7 @@
 package struktury;
 
-public class ZbiorNaTablicy extends struktury.Zbior{
+/**Implementacja Zbioru na Tablicy*/
+public class ZbiorNaTablicy extends Zbior{
 
     public ZbiorNaTablicy(int rozmiar){
         super(rozmiar);
@@ -16,7 +17,6 @@ public class ZbiorNaTablicy extends struktury.Zbior{
         return null;
     }
 
-    /** metoda ma wstawiać do zbioru nową parę */
     public void wstaw (Para p) throws IllegalArgumentException{
         if (this.ile() != this.rozmiar){
             if(this.szukaj(p.klucz) != null){
@@ -30,11 +30,10 @@ public class ZbiorNaTablicy extends struktury.Zbior{
                 }
             }
         } else {
-            System.err.println("Zbiór jest pełny!");
+            throw new IllegalArgumentException("Tablica jest zapełniona");
         }
     }
 
-    /** metoda ma odszukać parę i zwrócić wartość związaną z kluczem */
     public double czytaj (String k) throws IllegalArgumentException{
         try {
             Para szukana = szukaj(k);
@@ -47,7 +46,6 @@ public class ZbiorNaTablicy extends struktury.Zbior{
         }
     }
 
-    /** metoda ma wstawić do zbioru nową albo zaktualizować parę */
     public void ustaw (Para p) throws IllegalArgumentException{      
         try{
             if (this.szukaj(p.klucz) != null){
@@ -71,8 +69,7 @@ public class ZbiorNaTablicy extends struktury.Zbior{
     }
 
     public void czysc(){
-        ZbiorNaTablicy nowy = new ZbiorNaTablicy(this.rozmiar);
-        this.tablicaPar = nowy.tablicaPar;
+        this.tablicaPar = new Para[this.rozmiar];
     }
 
     public int ile (){
