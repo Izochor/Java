@@ -10,7 +10,7 @@ public abstract class Wyrazenie implements Obliczalny{
         double wynik = 0;
 
         for(int i=0; i<wyr.length; i++) {
-            wynik += Double.parseDouble(wyr[i].toString());
+            wynik += wyr[i].oblicz();
         }
         return wynik;
     }
@@ -20,7 +20,7 @@ public abstract class Wyrazenie implements Obliczalny{
         double wynik = 0;
 
         for(int i=0; i<wyr.length; i++) {
-            wynik *= Double.parseDouble(wyr[i].toString());
+            wynik *= wyr[i].oblicz();
         }
         return wynik;
     }

@@ -1,12 +1,11 @@
 package obliczenia;
 
 public class Liczba extends Wyrazenie{
-    public final double liczba;
+    protected final double liczba;
 
     public Liczba(double l){
         super();
         this.liczba = l;
-        oblicz();
     }
 
     public double oblicz() {

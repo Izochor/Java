@@ -3,12 +3,11 @@ import struktury.*;
 
 public class Stala extends Wyrazenie{
     public static final ZbiorNaTablicy zbiorStalych = new ZbiorNaTablicy(10);
-    public String klucz;
+    protected String klucz;
 
     public Stala(String k){
         super();
         this.klucz = k;
-        oblicz();
     }
 
     public double oblicz(){

@@ -3,12 +3,11 @@ import struktury.*;
 
 public class Zmienna extends Wyrazenie {
     public static final ZbiorNaTablicy zbiorZmiennych = new ZbiorNaTablicy(10);
-    public String klucz;
+    protected String klucz;
 
     public Zmienna(String k){
         super();
         this.klucz = k;
-        oblicz();
     }
 
     public double oblicz(){
@@ -16,6 +15,6 @@ public class Zmienna extends Wyrazenie {
     }
 
     public String toString(){
-        return String.valueOf(zbiorZmiennych.czytaj(this.klucz));
+        return klucz+" = "+String.valueOf(zbiorZmiennych.czytaj(this.klucz));
     }
 }
