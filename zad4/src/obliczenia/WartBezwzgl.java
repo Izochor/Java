@@ -2,6 +2,7 @@ package obliczenia;
 
 import java.lang.*;
 
+/** Klasa obliczająca wartość bezwzlęgną z wyrażenia*/
 public class WartBezwzgl extends Operator1Arg {
     protected final Wyrazenie liczba;
 

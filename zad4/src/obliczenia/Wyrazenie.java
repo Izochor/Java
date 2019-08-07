@@ -1,5 +1,6 @@
 package obliczenia;
 
+/** Klasa abstrakcyjna implementująca interfejs Obliczalny*/
 public abstract class Wyrazenie implements Obliczalny{
 
     public Wyrazenie(){

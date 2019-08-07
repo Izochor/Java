@@ -2,6 +2,7 @@ package obliczenia;
 
 import java.lang.*;
 
+/** Klasa obliczająca sinus wyrażenia podanego w kątach*/
 public class Sinus extends Operator1Arg{
     protected final Wyrazenie kat;
 

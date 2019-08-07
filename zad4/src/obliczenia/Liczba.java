@@ -1,5 +1,6 @@
 package obliczenia;
 
+/** Klasa reprezentująca liczbę*/
 public class Liczba extends Wyrazenie{
     protected final double liczba;
 
